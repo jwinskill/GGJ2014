@@ -49,7 +49,6 @@ public class player : MonoBehaviour {
 			layer = -1;
 		}
 
-		Debug.Log(layer);
 	}
 
 	int GetLayer(){
