@@ -4,10 +4,15 @@ using System.Collections;
 public class CoreLayer : MonoBehaviour {
 
 	public string LayerName = "Unknown_Corelayer";
-
+	private float baselightIntensity = 0.0f;
 	// Use this for initialization
 	void Start () {
-	
+		Light[] lights = gameObject.GetComponentsInChildren<Light> ();
+		foreach (Light light in lights) {
+			baselightIntensity = light.intensity;
+			break;
+		}
+		
 	}
 	
 	// Update is called once per frame
@@ -18,7 +23,7 @@ public class CoreLayer : MonoBehaviour {
 	void OnMouseEnter() { 
 		Light[] lights = gameObject.GetComponentsInChildren<Light> ();
 		foreach (Light light in lights) {
-			light.intensity = 0.3f;
+			light.intensity = baselightIntensity * 3;
 		}
 
 		Debug.Log("I am over something " + LayerName); 
@@ -27,7 +32,7 @@ public class CoreLayer : MonoBehaviour {
 	void OnMouseExit () {
 		Light[] lights = gameObject.GetComponentsInChildren<Light> ();
 		foreach (Light light in lights) {
-			light.intensity = 0.1f;
+			light.intensity = baselightIntensity;
 		}
 	}
 }
