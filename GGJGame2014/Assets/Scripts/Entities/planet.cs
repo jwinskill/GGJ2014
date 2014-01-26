@@ -53,6 +53,7 @@ public class planet : MonoBehaviour {
 		atmosphere += 0.1f;
 		if (atmosphere > 100f) {
 			atmosphere = 100f;
+		}
 		if (temperature[0] > VolcanoSpawnTemp) {
 
 			Instantiate(VolcanoPrefab,new Vector3(0f,0f,0f),PlayerObject.transform.rotation);
