@@ -6,9 +6,11 @@ public class CoreLayer : MonoBehaviour {
 	public string LayerName = "Unknown_Corelayer";
 	private float baselightIntensity = 0.0f;
 	private bool isUserMouseDown = false;
+	private planet parentPlanet;
 
 	// Use this for initialization
 	void Start () {
+		parentPlanet = gameObject.transform.parent.gameObject.GetComponent<planet>();
 		Light[] lights = gameObject.GetComponentsInChildren<Light> ();
 		foreach (Light light in lights) {
 			baselightIntensity = light.intensity;
