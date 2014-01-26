@@ -72,6 +72,16 @@ public class planet : MonoBehaviour {
 		}
 	}
 
+
+	void OnGUI () {
+		// if planet is destroyed
+
+		if (GUI.Button(new Rect(10, 10, 150, 50), "Find new planet.")) {
+			Application.LoadLevel("Main");
+		}
+	}
+
+
 	public void AbsorbHeat(int layer, float tempamplitude) {
 		// If core, temperature rises dramatically // Stability drops dramatically
 		temperature[layer] += (basetempincrease * tempamplitude);
