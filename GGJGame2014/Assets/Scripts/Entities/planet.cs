@@ -113,7 +113,7 @@ public class planet : MonoBehaviour {
 		//Debug.Log ("TEMPERATURE OF CORE LAYER: " + layer + " is : " + temperature [layer]);
 		if (temperature[1] > VolcanoSpawnTemp) {
 			
-			Instantiate(VolcanoPrefab,new Vector3(0f,0f,7f),PlayerObject.transform.rotation);
+			Instantiate(VolcanoPrefab,new Vector3(0f,0f,0f),PlayerObject.transform.rotation);
 			temperature[1] -= Mathf.Max (0,VolcanoSpawnTempReduction);
 			atmosphere += 40f;		
 			if (atmosphere > 100f) {
