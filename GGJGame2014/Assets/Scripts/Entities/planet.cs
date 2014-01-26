@@ -69,10 +69,14 @@ public class planet : MonoBehaviour {
 	void Update () {
 		
 		if (water > atmosphere) {
-			water -= 0.05f;
+			water -= 3f * Time.deltaTime;
 		}
 
-		if (stability < 0 && planetAlive)
+		if (atmosphere < temperature[2]) {
+			temperature[2] -= 1.5f * Time.deltaTime;
+		}
+
+		if (stability <= 0 && planetAlive)
 		{
 			planetAlive = false;
 			// Play explosion animation
@@ -82,13 +86,27 @@ public class planet : MonoBehaviour {
 	}
 
 
-	public float AbsorbHeat(int layer, float tempamplitude) {
+	public void AbsorbHeat(int layer, float tempamplitude) {
 
 		stability -= tempamplitude;
+		if (stability < 0f) {
+			stability = 0f;
+		}
+
 
 		// If core, temperature rises dramatically // Stability drops dramatically
 		temperature[layer] += (basetempincrease * tempamplitude);
 		
+		// Diffuse heat from core
+		if (layer == 0) {
+			temperature[1] += (basetempincrease * tempamplitude * 0.5f);
+			temperature[2] += (basetempincrease * tempamplitude * 0.25f);
+		}
+
+		if (layer == 1) {
+			temperature[2] += (basetempincrease * tempamplitude * 0.5f);
+		}
+
 		Debug.Log ("TEMPERATURE OF CORE LAYER: " + layer + " is : " + temperature [layer]);
 		if (temperature[1] > VolcanoSpawnTemp) {
 			
@@ -110,6 +128,10 @@ public class planet : MonoBehaviour {
 			}
 		}
 
+	}
+
+	
+	public float GetLayerTemp(int layer) {
 		return temperature[layer];
 	}
 
