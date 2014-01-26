@@ -66,10 +66,10 @@ public class planet : MonoBehaviour {
 		temperature[layer] += (basetempincrease * tempamplitude);
 
 		Debug.Log ("TEMPERATURE OF CORE LAYER: " + layer + " is : " + temperature [layer]);
-		if (temperature[0] > VolcanoSpawnTemp) {
+		if (temperature[1] > VolcanoSpawnTemp) {
 			
 			Instantiate(VolcanoPrefab,new Vector3(0f,0f,7f),PlayerObject.transform.rotation);
-			temperature[0] -= Mathf.Max (0,VolcanoSpawnTempReduction);
+			temperature[1] -= Mathf.Max (0,VolcanoSpawnTempReduction);
 			
 		}
 		if (temperature[2] > SteamSpawnTemp) {
