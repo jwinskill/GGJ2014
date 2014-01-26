@@ -391,6 +391,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 02489be11e1014642837b71fd05a61e7,
         type: 3}
+    - target: {fileID: 11400000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
+      propertyPath: LayerDepth
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
   m_RootGameObject: {fileID: 1957563809}
@@ -488,6 +492,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aabb99e1a9177a46855d4494ad7046c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LayerDepth: 2
+  TempAmplitude: 1
   LayerName: Crust
 --- !u!58 &851922550
 CircleCollider2D:
@@ -925,6 +931,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aabb99e1a9177a46855d4494ad7046c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LayerDepth: 0
+  TempAmplitude: 1
   LayerName: Core
 --- !u!58 &1299529821
 CircleCollider2D:
@@ -1129,6 +1137,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
       propertyPath: LayerName
       value: Crust
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
+      propertyPath: LayerDepth
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
@@ -1426,6 +1438,10 @@ Prefab:
       propertyPath: LayerName
       value: Mantle
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
+      propertyPath: LayerDepth
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
   m_RootGameObject: {fileID: 2114097959}
@@ -1500,6 +1516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aabb99e1a9177a46855d4494ad7046c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LayerDepth: 3
+  TempAmplitude: 1
   LayerName: Outer_Mantle
 --- !u!58 &1957563812
 CircleCollider2D:
@@ -1630,6 +1648,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aabb99e1a9177a46855d4494ad7046c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LayerDepth: 1
+  TempAmplitude: 1
   LayerName: Mantle
 --- !u!58 &2114097962
 CircleCollider2D:
