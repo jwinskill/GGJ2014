@@ -13,6 +13,19 @@ public class planet : MonoBehaviour {
 	bool[] life = new bool[360];
 	private float basetempincrease = 1.0f;
 
+	public float PlanetTemperature 
+	{
+		get {
+			float currenttemp = 0.0f;
+			foreach (float temp in temperature)
+			{
+				currenttemp += temp;
+			}
+			return currenttemp;
+		}
+
+	}
+
 	// Use this for initialization
 	void Start () {
 	
@@ -24,6 +37,7 @@ public class planet : MonoBehaviour {
 			// If uninhabitable
 				// Kill off life that can't survive
 		// Temperature falls over time.
+		float temp = PlanetTemperature;
 	}
 
 	public void AbsorbHeat(int layer, float tempamplitude) {
