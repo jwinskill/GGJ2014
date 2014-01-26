@@ -28,6 +28,14 @@ public class planet : MonoBehaviour {
 
 	}
 
+
+	public float Atmosphere
+	{
+		get {
+			return atmosphere / 100f;
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
 	
@@ -35,10 +43,10 @@ public class planet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		// Every .5 seconds
-			// If uninhabitable
-				// Kill off life that can't survive
-		// Temperature falls over time.
+		atmosphere += 0.1f;
+		if (atmosphere > 100f) {
+			atmosphere = 100f;
+		}
 	}
 
 	public void AbsorbHeat(int layer, float tempamplitude) {
