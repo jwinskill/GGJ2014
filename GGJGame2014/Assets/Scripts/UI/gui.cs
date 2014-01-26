@@ -3,13 +3,19 @@ using System.Collections;
 
 public class gui : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	void OnGUI () {
+		// Draw Meters
+
+			// Atmosphere 
+			// Atmosphere Breathability
+			// Radiation
+			// Temperature
+			// Life
+			
+
+
+			// Core Temperature
+			// Ozone Layer
+			//
 	}
 }
