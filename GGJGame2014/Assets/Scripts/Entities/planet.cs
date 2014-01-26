@@ -60,7 +60,7 @@ public class planet : MonoBehaviour {
 		}
 		if (temperature[0] > VolcanoSpawnTemp) {
 
-			Instantiate(VolcanoPrefab,new Vector3(0f,0f,0f),PlayerObject.transform.rotation);
+			Instantiate(VolcanoPrefab,new Vector3(0f,0f,7f),PlayerObject.transform.rotation);
 			temperature[0] -= Mathf.Max (0,VolcanoSpawnTempReduction);
 
 		}
