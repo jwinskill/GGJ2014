@@ -1244,6 +1244,7 @@ MonoBehaviour:
   tempBar: {fileID: 348324378}
   atmoBar: {fileID: 238409980}
   waterBar: {fileID: 1932431861}
+  targetplanet: {fileID: 1028970559}
 --- !u!1001 &1384549485
 Prefab:
   m_ObjectHideFlags: 0

@@ -14,9 +14,11 @@ public class gui : MonoBehaviour {
 	private float upperThreshold = 1.75f; // Highest X value of UI
 
 	private float threshold;
+	private float origin;
 
 	void Start () {
 		threshold = upperThreshold - lowerThreshold;
+		origin = tempBar.transform.position.x;
 	}
 
 	void Update () {
@@ -24,6 +26,10 @@ public class gui : MonoBehaviour {
 
 
 		// Temperature
+		float temp = targetplanet.PlanetTemperature / targetplanet.MaxTemperature;
+		float percent = temp * threshold;
+		Vector3 pos = new Vector3(origin + percent, tempBar.transform.position.y, tempBar.transform.position.z);
+		tempBar.transform.position = pos;
 
 		// Atmosphere
 
