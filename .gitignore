@@ -1,10 +1,8 @@
 # =============== #
 # Unity generated #
 # =============== #
-*/Library/cache/*
-*/Library/metadata/*
-*/Library/previews/*
-*/Temp/*
+*/Library/
+*/Temp/
 */Obj/
 */UnityGenerated/
  

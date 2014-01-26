@@ -832,7 +832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5c019d57485c44aa35b87b8b7b4243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPlanet: {fileID: 0}
+  targetPlanet: {fileID: 1028970559}
 --- !u!1 &1257950712
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,6 +1193,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1369821274}
+  - 114: {fileID: 1369821275}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -1216,6 +1217,21 @@ Transform:
   - {fileID: 348324379}
   - {fileID: 74142093}
   m_Father: {fileID: 0}
+--- !u!114 &1369821275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1369821273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bca600945b83974469a85987cc6df5e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stableBar: {fileID: 74142092}
+  tempBar: {fileID: 348324378}
+  atmoBar: {fileID: 238409980}
+  waterBar: {fileID: 1932431861}
 --- !u!1001 &1384549485
 Prefab:
   m_ObjectHideFlags: 0
