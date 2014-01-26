@@ -38,5 +38,10 @@ public class gui : MonoBehaviour {
 		atmoBar.transform.position = pos;
 
 		// Water
+		float water = targetplanet.Atmosphere;
+		percent = water * threshold;
+		pos = new Vector3(origin + percent, waterBar.transform.position.y, waterBar.transform.position.z);
+		waterBar.transform.position = pos;
+
 	}
 }
