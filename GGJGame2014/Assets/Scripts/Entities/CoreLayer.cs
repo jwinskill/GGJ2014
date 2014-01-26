@@ -3,6 +3,10 @@ using System.Collections;
 
 public class CoreLayer : MonoBehaviour {
 
+	
+	public Beam PlayerBeam;
+	public float BeamLength = 0.6f;
+
 	public int LayerDepth = 0;
 	public float TempAmplitude = 1.0f;
 	public string LayerName = "Unknown_Corelayer";
@@ -31,11 +35,13 @@ public class CoreLayer : MonoBehaviour {
 
 	void OnMouseDown() {
 		isUserMouseDown = true;
+		PlayerBeam.StartBeam (BeamLength);
 		Debug.Log ("USER MOUSE DOWN : " + LayerName);
 	}
 
 	void OnMouseUp() {
 		isUserMouseDown = false;
+		PlayerBeam.StopBeam ();
 		Debug.Log ("USER MOUSE UP : " + LayerName);
 	}
 	
