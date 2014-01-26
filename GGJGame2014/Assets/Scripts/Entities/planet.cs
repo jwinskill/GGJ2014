@@ -81,7 +81,7 @@ public class planet : MonoBehaviour {
 			planetAlive = false;
 			// Play explosion animation
 			// Show game over UI
-		} else if {
+		} else {
 			// Water > < threshold
 			// 
 		}
@@ -142,15 +142,4 @@ public class planet : MonoBehaviour {
 	public bool GameOver() {
 		return !planetAlive;
 	}
-
-
-	void OnGUI () {
-		// if planet is destroyed
-		if (!planetAlive) {
-			if (GUI.Button(new Rect(10, 10, 150, 50), "Find new planet.")) {
-				Application.LoadLevel("Main");
-			}
-		}
-	}
-
 }
