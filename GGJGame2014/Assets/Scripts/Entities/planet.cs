@@ -13,6 +13,8 @@ public class planet : MonoBehaviour {
 	bool[] life = new bool[360];
 	private float basetempincrease = 1.0f;
 
+	public float MaxTemperature = 100f;
+
 	public float PlanetTemperature 
 	{
 		get {
@@ -21,7 +23,7 @@ public class planet : MonoBehaviour {
 			{
 				currenttemp += temp;
 			}
-			return currenttemp;
+			return Mathf.Min(MaxTemperature, currenttemp);
 		}
 
 	}
