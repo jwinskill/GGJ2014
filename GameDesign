@@ -1,3 +1,14 @@
 
 PlayerController
 
+Rotate around z axis based on angle from mouse position to 0 coord
+
+
+LevelController
+
+float stability = 100;
+float atmosphere = 100;
+float temperature = 100;
+float water = 0;
+
+bool[] life = new bool[360];

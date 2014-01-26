@@ -54,10 +54,13 @@ public class player : MonoBehaviour {
 			transform.rotation = Quaternion.Slerp(transform.rotation, newAngle, Time.deltaTime);
 
 			layer = (int) distance / 40;
-
-			if (Input.GetMouseButtonDown(0)) {
-				Debug.Log(layer);
-			}
+		} else {
+			layer = -1;
 		}
+
+		if (Input.GetMouseButtonDown(0)) {
+			Debug.Log(layer);
+		}
+
 	}
 }
