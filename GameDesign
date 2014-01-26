@@ -1,7 +1,6 @@
 
 
 Volcano
-- Covers 3/8 of planet with atmosphere
 - Comes from Mantle
 - Causes drop in mantle temperature
 - Increase in crust temperature
@@ -35,7 +34,7 @@ Sound Effects
 Project Setup
 
 Water = 4 steam vents
-Atmosphere = 100% Air Cover
+Atmosphere = 3 volcanoes
 Temperature = All four layers added/averaged/ weighted?
 Stability is the health of the planet (0 blows it up)
 
