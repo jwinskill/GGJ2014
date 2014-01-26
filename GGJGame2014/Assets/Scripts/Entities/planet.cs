@@ -58,11 +58,19 @@ public class planet : MonoBehaviour {
 		if (atmosphere > 100f) {
 			atmosphere = 100f;
 		}
-		if (temperature[0] > VolcanoSpawnTemp) {
 
+	}
+
+	public float AbsorbHeat(int layer, float tempamplitude) {
+		// If core, temperature rises dramatically // Stability drops dramatically
+		temperature[layer] += (basetempincrease * tempamplitude);
+
+		Debug.Log ("TEMPERATURE OF CORE LAYER: " + layer + " is : " + temperature [layer]);
+		if (temperature[0] > VolcanoSpawnTemp) {
+			
 			Instantiate(VolcanoPrefab,new Vector3(0f,0f,7f),PlayerObject.transform.rotation);
 			temperature[0] -= Mathf.Max (0,VolcanoSpawnTempReduction);
-
+			
 		}
 		if (temperature[2] > SteamSpawnTemp) {
 			
@@ -70,13 +78,8 @@ public class planet : MonoBehaviour {
 			temperature[2] -= Mathf.Max (0,SteamSpawnTempReduction);
 			
 		}
-	}
 
-	public void AbsorbHeat(int layer, float tempamplitude) {
-		// If core, temperature rises dramatically // Stability drops dramatically
-		temperature[layer] += (basetempincrease * tempamplitude);
-
-		Debug.Log ("TEMPERATURE OF CORE LAYER: " + layer + " is : " + temperature [layer]);
+		return temperature[layer];
 	}
 
 	void AddLife(float angle) {
