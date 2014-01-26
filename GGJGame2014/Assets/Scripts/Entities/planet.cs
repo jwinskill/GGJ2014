@@ -39,7 +39,6 @@ public class planet : MonoBehaviour {
 			// If uninhabitable
 				// Kill off life that can't survive
 		// Temperature falls over time.
-		float temp = PlanetTemperature;
 	}
 
 	public void AbsorbHeat(int layer, float tempamplitude) {
