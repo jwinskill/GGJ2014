@@ -8,6 +8,10 @@ public class gui : MonoBehaviour {
 	public GameObject atmoBar;
 	public GameObject waterBar;
 
+	public GameObject credits;
+	public GameObject defeat;
+	public GameObject victory;
+
 	public planet targetplanet;
 
 	private float lowerThreshold = -0.1f; // Lowest X value of UI
@@ -15,6 +19,8 @@ public class gui : MonoBehaviour {
 
 	private float threshold;
 	private float origin;
+
+	private bool showingEndScreen = false;
 
 	void Start () {
 		threshold = upperThreshold - lowerThreshold;
@@ -46,6 +52,25 @@ public class gui : MonoBehaviour {
 		percent = stability * threshold;
 		pos = new Vector3(origin + percent, stableBar.transform.position.y, stableBar.transform.position.z);
 		stableBar.transform.position = pos;
+
+		if (!showingEndScreen && targetplanet.GameOver()) {
+			showingEndScreen = true;
+
+			pos = new Vector3(0, 0, 90);
+
+			// Move Credit forward
+			credits.transform.position += pos;
+
+
+			if (targetplanet.Victory) {
+				victory.transform.position += pos;
+				//victory text forward
+			} else {
+				defeat.transform.position += pos;
+				// defeat text forward
+
+			}
+		}
 
 	}
 

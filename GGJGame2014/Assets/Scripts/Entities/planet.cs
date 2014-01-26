@@ -8,6 +8,7 @@ public class planet : MonoBehaviour {
 	float[] temperature = new float[]{0.0f,0.0f,0.0f,0.0f}; //Smallest Chunk is index zero, atmosphere is four
 	float water = 0;
 
+	bool victory = false;
 	bool planetAlive = true;
 	private float basetempincrease = 1.0f;
 
@@ -34,6 +35,14 @@ public class planet : MonoBehaviour {
 			return Mathf.Min(MaxTemperature, currenttemp);
 		}
 
+	}
+	
+	
+	public bool Victory
+	{
+		get {
+			return victory;
+		}
 	}
 
 
@@ -81,11 +90,18 @@ public class planet : MonoBehaviour {
 			planetAlive = false;
 			// Play explosion animation
 			// Show game over UI
-		} else {
-			// Water > < threshold
-			// 
+		} else if (planetAlive) {
+			if (water > 45f &&
+			    water < 70f &&
+			    atmosphere > 85f &&
+			    PlanetTemperature > 45f && 
+			    PlanetTemperature < 70f
+			    ) {
+				victory = true;
+				planetAlive = false;
+			}
 		}
-
+		Debug.Log("Temperature: " + PlanetTemperature + " Atmosphere: " + atmosphere + " Water: " + water);
 	}
 
 
