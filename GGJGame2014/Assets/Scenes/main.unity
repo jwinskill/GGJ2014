@@ -485,6 +485,7 @@ GameObject:
   - 212: {fileID: 851922551}
   - 58: {fileID: 851922550}
   - 114: {fileID: 851922549}
+  - 50: {fileID: 851922552}
   m_Layer: 0
   m_Name: 02_crust
   m_TagString: Untagged
@@ -518,8 +519,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerBeam: {fileID: 1540244568}
   BeamLength: .310000002
+  MaxTemp: 25
   LayerDepth: 2
-  TempAmplitude: 1
+  TempAmplitude: .200000003
   LayerName: Crust
 --- !u!58 &851922550
 CircleCollider2D:
@@ -557,6 +559,21 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 24205b221a665034598a91113e0d901f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!50 &851922552
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 851922547}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!1 &1028970557
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,7 +698,7 @@ Transform:
   m_PrefabInternal: {fileID: 1332407490}
   m_GameObject: {fileID: 1093799697}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.33215666}
+  m_LocalPosition: {x: 0, y: 0, z: -.955378532}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 851922548}
@@ -695,9 +712,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 3
   m_Type: 0
-  m_Color: {r: .5, g: .299797177, b: .191176474, a: 1}
-  m_Intensity: 3.93000007
-  m_Range: 3
+  m_Color: {r: .617647052, g: .345030338, b: 0, a: 1}
+  m_Intensity: 6.01999998
+  m_Range: 4
   m_SpotAngle: 179
   m_CookieSize: 10
   m_Shadows:
@@ -794,7 +811,7 @@ Transform:
   m_PrefabInternal: {fileID: 1852497810}
   m_GameObject: {fileID: 1166400713}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.81628227}
+  m_LocalPosition: {x: 0, y: 0, z: -.588000298}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2114097960}
@@ -809,9 +826,9 @@ Light:
   serializedVersion: 3
   m_Type: 0
   m_Color: {r: 1, g: .0367646813, b: .0367646813, a: 1}
-  m_Intensity: 1.71000004
-  m_Range: 4
-  m_SpotAngle: 23.1000004
+  m_Intensity: 5.53999996
+  m_Range: 2
+  m_SpotAngle: 179
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -968,6 +985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerBeam: {fileID: 1540244568}
   BeamLength: .600000024
+  MaxTemp: 25
   LayerDepth: 0
   TempAmplitude: 1
   LayerName: Core
@@ -1145,23 +1163,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
       propertyPath: m_Color.r
-      value: .5
+      value: .617647052
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
       propertyPath: m_Color.g
-      value: .299797177
+      value: .345030338
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
       propertyPath: m_Color.b
-      value: .191176474
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
       propertyPath: m_Range
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1.33215666
+      value: -.955378532
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
       propertyPath: m_Type
@@ -1169,7 +1187,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
       propertyPath: m_Intensity
-      value: 3.93000007
+      value: 6.01999998
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
       propertyPath: LayerName
@@ -1186,6 +1204,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
       propertyPath: BeamLength
       value: .310000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
+      propertyPath: TempAmplitude
+      value: .200000003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
@@ -1345,6 +1367,10 @@ Prefab:
       propertyPath: PlayerBeam
       value: 
       objectReference: {fileID: 1540244568}
+    - target: {fileID: 21200000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1ef271847e50f50458183d26f802123c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
   m_RootGameObject: {fileID: 1299529818}
@@ -2570,19 +2596,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
       propertyPath: m_SpotAngle
-      value: 23.1000004
+      value: 179
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
       propertyPath: m_Intensity
-      value: 1.71000004
+      value: 5.53999996
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -2.81628227
+      value: -.588000298
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
       propertyPath: m_Range
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
       propertyPath: m_Color.r
@@ -2701,6 +2727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerBeam: {fileID: 1540244568}
   BeamLength: .200000003
+  MaxTemp: 25
   LayerDepth: 3
   TempAmplitude: 1
   LayerName: Outer_Mantle
@@ -2802,6 +2829,7 @@ GameObject:
   - 212: {fileID: 2114097963}
   - 58: {fileID: 2114097962}
   - 114: {fileID: 2114097961}
+  - 50: {fileID: 2114097964}
   m_Layer: 0
   m_Name: 01_mantle
   m_TagString: Untagged
@@ -2835,6 +2863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerBeam: {fileID: 1540244568}
   BeamLength: .449999988
+  MaxTemp: 25
   LayerDepth: 1
   TempAmplitude: 1
   LayerName: Mantle
@@ -2874,3 +2903,18 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 24205b221a665034598a91113e0d901f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!50 &2114097964
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2114097959}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0

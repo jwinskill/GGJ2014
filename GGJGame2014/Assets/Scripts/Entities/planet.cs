@@ -6,11 +6,8 @@ public class planet : MonoBehaviour {
 	float stability = 100;
 	float atmosphere = 0;
 	float[] temperature = new float[]{0.0f,0.0f,0.0f,0.0f}; //Smallest Chunk is index zero, atmosphere is four
-	float liquidwater = 0;
+	float water = 0;
 
-	bool ideal = false; // Fit for your species
-	bool inhabitable = false; // Fit for life
-	bool[] life = new bool[360];
 	private float basetempincrease = 1.0f;
 
 	public float MaxTemperature = 100f;
@@ -46,6 +43,22 @@ public class planet : MonoBehaviour {
 		}
 	}
 
+
+	public float Water
+	{
+		get {
+			return water / 100f;
+		}
+	}
+
+
+	public float Stability {
+		get {
+			return stability / 100f;
+		}
+	}
+
+
 	// Use this for initialization
 	void Start () {
 	
@@ -53,23 +66,40 @@ public class planet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		atmosphere += 0.1f;
-		if (atmosphere > 100f) {
-			atmosphere = 100f;
+		
+		if (water > atmosphere) {
+			water -= 0.05f;
 		}
-		if (temperature[0] > VolcanoSpawnTemp) {
 
+	}
+
+
+	public float AbsorbHeat(int layer, float tempamplitude) {
+		// If core, temperature rises dramatically // Stability drops dramatically
+		temperature[layer] += (basetempincrease * tempamplitude);
+
+		Debug.Log ("TEMPERATURE OF CORE LAYER: " + layer + " is : " + temperature [layer]);
+		if (temperature[1] > VolcanoSpawnTemp) {
+			
 			Instantiate(VolcanoPrefab,new Vector3(0f,0f,7f),PlayerObject.transform.rotation);
-			temperature[0] -= Mathf.Max (0,VolcanoSpawnTempReduction);
-
+			temperature[1] -= Mathf.Max (0,VolcanoSpawnTempReduction);
+			atmosphere += 40f;		
+			if (atmosphere > 100f) {
+				atmosphere = 100f;
+			}
+			
 		}
 		if (temperature[2] > SteamSpawnTemp) {
 			
 			Instantiate(SteamParticleObject, new Vector3(0f,0f,0f),PlayerObject.transform.rotation);
 			temperature[2] -= Mathf.Max (0,SteamSpawnTempReduction);
-			
+			water += 30f;
+			if (water > 100f) {
+				water = 100f;
+			}
 		}
+
+		return temperature[layer];
 	}
 
 
@@ -81,13 +111,6 @@ public class planet : MonoBehaviour {
 		}
 	}
 
-
-	public void AbsorbHeat(int layer, float tempamplitude) {
-		// If core, temperature rises dramatically // Stability drops dramatically
-		temperature[layer] += (basetempincrease * tempamplitude);
-
-		Debug.Log ("TEMPERATURE OF CORE LAYER: " + layer + " is : " + temperature [layer]);
-	}
 
 	void AddLife(float angle) {
 		// Set life to true for 
