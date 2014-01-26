@@ -372,11 +372,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
       propertyPath: m_LocalScale.x
-      value: .649999976
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
       propertyPath: m_LocalScale.y
-      value: .649999976
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
       propertyPath: m_SpotAngle
@@ -419,7 +419,12 @@ Prefab:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5800000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11400000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 40cce99d672f7c9428178a3503a73d35, type: 2}
   m_RootGameObject: {fileID: 1957563809}
   m_IsPrefabParent: 0
@@ -521,7 +526,6 @@ MonoBehaviour:
   BeamLength: .310000002
   MaxTemp: 25
   LayerDepth: 2
-  TempAmplitude: .200000003
   LayerName: Crust
 --- !u!58 &851922550
 CircleCollider2D:
@@ -987,7 +991,6 @@ MonoBehaviour:
   BeamLength: .600000024
   MaxTemp: 25
   LayerDepth: 0
-  TempAmplitude: 1
   LayerName: Core
 --- !u!58 &1299529821
 CircleCollider2D:
@@ -2709,28 +2712,22 @@ Transform:
   m_GameObject: {fileID: 1957563809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.544136643, y: .8768242, z: 8}
-  m_LocalScale: {x: .649999976, y: .649999976, z: 1}
+  m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children:
   - {fileID: 493009438}
   m_Father: {fileID: 1028970558}
 --- !u!114 &1957563811
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 40cce99d672f7c9428178a3503a73d35,
-    type: 2}
-  m_PrefabInternal: {fileID: 592428982}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1957563809}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aabb99e1a9177a46855d4494ad7046c, type: 3}
+  m_Script: {fileID: 11500000, guid: 91e6f8131a4f6344bbbd9f83af5fe2a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerBeam: {fileID: 1540244568}
-  BeamLength: .200000003
-  MaxTemp: 25
-  LayerDepth: 3
-  TempAmplitude: 1
-  LayerName: Outer_Mantle
+  targetPlanet: {fileID: 1028970559}
 --- !u!58 &1957563812
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2738,7 +2735,7 @@ CircleCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 592428982}
   m_GameObject: {fileID: 1957563809}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Radius: 5.11999989
@@ -2865,7 +2862,6 @@ MonoBehaviour:
   BeamLength: .449999988
   MaxTemp: 25
   LayerDepth: 1
-  TempAmplitude: 1
   LayerName: Mantle
 --- !u!58 &2114097962
 CircleCollider2D:

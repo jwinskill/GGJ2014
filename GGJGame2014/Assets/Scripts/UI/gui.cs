@@ -22,8 +22,6 @@ public class gui : MonoBehaviour {
 	}
 
 	void Update () {
-		// Stability
-
 
 		// Temperature
 		float temp = targetplanet.PlanetTemperature / targetplanet.MaxTemperature;
@@ -42,6 +40,12 @@ public class gui : MonoBehaviour {
 		percent = water * threshold;
 		pos = new Vector3(origin + percent, waterBar.transform.position.y, waterBar.transform.position.z);
 		waterBar.transform.position = pos;
+
+		// Stability
+		float stability = targetplanet.Stability;
+		percent = stability * threshold;
+		pos = new Vector3(origin + percent, stableBar.transform.position.y, stableBar.transform.position.z);
+		stableBar.transform.position = pos;
 
 	}
 }

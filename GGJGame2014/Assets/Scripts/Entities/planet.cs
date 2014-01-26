@@ -8,6 +8,7 @@ public class planet : MonoBehaviour {
 	float[] temperature = new float[]{0.0f,0.0f,0.0f,0.0f}; //Smallest Chunk is index zero, atmosphere is four
 	float water = 0;
 
+	bool planetAlive = true;
 	private float basetempincrease = 1.0f;
 
 	public float MaxTemperature = 100f;
@@ -16,10 +17,10 @@ public class planet : MonoBehaviour {
 	public GameObject VolcanoPrefab;
 
 	public float VolcanoSpawnTemp = 20f;
-	public float VolcanoSpawnTempReduction = 15f;
+	public float VolcanoSpawnTempReduction = 10f;
 
 	public float SteamSpawnTemp = 20f;
-	public float SteamSpawnTempReduction = 15f;
+	public float SteamSpawnTempReduction = 10f;
 	public GameObject SteamParticleObject;
 
 	public float PlanetTemperature 
@@ -71,13 +72,23 @@ public class planet : MonoBehaviour {
 			water -= 0.05f;
 		}
 
+		if (stability < 0 && planetAlive)
+		{
+			planetAlive = false;
+			// Play explosion animation
+			// Show game over UI
+		}
+
 	}
 
 
 	public float AbsorbHeat(int layer, float tempamplitude) {
+
+		stability -= tempamplitude;
+
 		// If core, temperature rises dramatically // Stability drops dramatically
 		temperature[layer] += (basetempincrease * tempamplitude);
-
+		
 		Debug.Log ("TEMPERATURE OF CORE LAYER: " + layer + " is : " + temperature [layer]);
 		if (temperature[1] > VolcanoSpawnTemp) {
 			
@@ -87,8 +98,8 @@ public class planet : MonoBehaviour {
 			if (atmosphere > 100f) {
 				atmosphere = 100f;
 			}
-			
 		}
+		
 		if (temperature[2] > SteamSpawnTemp) {
 			
 			Instantiate(SteamParticleObject, new Vector3(0f,0f,0f),PlayerObject.transform.rotation);
@@ -105,14 +116,11 @@ public class planet : MonoBehaviour {
 
 	void OnGUI () {
 		// if planet is destroyed
-
-		if (GUI.Button(new Rect(10, 10, 150, 50), "Find new planet.")) {
-			Application.LoadLevel("Main");
+		if (!planetAlive) {
+			if (GUI.Button(new Rect(10, 10, 150, 50), "Find new planet.")) {
+				Application.LoadLevel("Main");
+			}
 		}
 	}
 
-
-	void AddLife(float angle) {
-		// Set life to true for 
-	}
 }
