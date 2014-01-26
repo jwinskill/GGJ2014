@@ -1,14 +1,44 @@
 
-PlayerController
 
-Rotate around z axis based on angle from mouse position to 0 coord
+Volcano
+- Covers 3/8 of planet with atmosphere
+- Comes from Mantle
+- Causes drop in mantle temperature
+- Increase in crust temperature
+
+Steam Vent
+- Each adds a quarter water (if there is atmosphere)
+- Comes from Crust
+- Causes drop in crust temperature
+
+Different Cores Get Different Temps From Heat Gun
+Core adds heat to all the layers at a much higher rate(decreases stability faster)
+Mantle adds heat to crust as well
+Crust adds heat to the planet slowest, but only affects itself
+
+Features:
+Atmosphere Opacity (scale it up as it grows?)
+Can't pour heat into atmosphere
+Lighting indicates heat of each layer
+Blow up planet if temp / stability go too far?
+Temperature drops slowly without atmosphere
 
 
-LevelController
+Assets:
+Smoke Particles
+Steam Particles
+Steam Vents
+Volcano
 
-float stability = 100;
-float atmosphere = 100;
-float temperature = 100;
-float water = 0;
+Music 
+Sound Effects
+Project Setup
 
-bool[] life = new bool[360];
+Water = 4 steam vents
+Atmosphere = 100% Air Cover
+Temperature = All four layers added/averaged/ weighted?
+Stability is the health of the planet (0 blows it up)
+
+New planet button
+
+
