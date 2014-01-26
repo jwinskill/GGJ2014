@@ -81,6 +81,9 @@ public class planet : MonoBehaviour {
 			planetAlive = false;
 			// Play explosion animation
 			// Show game over UI
+		} else if {
+			// Water > < threshold
+			// 
 		}
 
 	}
@@ -107,7 +110,7 @@ public class planet : MonoBehaviour {
 			temperature[2] += (basetempincrease * tempamplitude * 0.5f);
 		}
 
-		Debug.Log ("TEMPERATURE OF CORE LAYER: " + layer + " is : " + temperature [layer]);
+		//Debug.Log ("TEMPERATURE OF CORE LAYER: " + layer + " is : " + temperature [layer]);
 		if (temperature[1] > VolcanoSpawnTemp) {
 			
 			Instantiate(VolcanoPrefab,new Vector3(0f,0f,7f),PlayerObject.transform.rotation);
@@ -133,6 +136,11 @@ public class planet : MonoBehaviour {
 	
 	public float GetLayerTemp(int layer) {
 		return temperature[layer];
+	}
+
+
+	public bool GameOver() {
+		return !planetAlive;
 	}
 
 

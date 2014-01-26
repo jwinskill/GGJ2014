@@ -48,4 +48,14 @@ public class gui : MonoBehaviour {
 		stableBar.transform.position = pos;
 
 	}
+
+	void OnGUI () {
+		// if planet is destroyed
+		if (targetplanet.GameOver()) {
+			if (GUI.Button(new Rect(10, 10, 150, 50), "Find new planet.")) {
+				Application.LoadLevel("Main");
+			}
+		}
+	}
+
 }
