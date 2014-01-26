@@ -15,6 +15,12 @@ public class planet : MonoBehaviour {
 
 	public float MaxTemperature = 100f;
 
+	public GameObject PlayerObject;
+	public GameObject VolcanoPrefab;
+
+	public float VolcanoSpawnTemp = 20f;
+	public float VolcanoSpawnTempReduction = 15f;
+
 	public float PlanetTemperature 
 	{
 		get {
@@ -39,6 +45,12 @@ public class planet : MonoBehaviour {
 			// If uninhabitable
 				// Kill off life that can't survive
 		// Temperature falls over time.
+
+		if (temperature[0] > VolcanoSpawnTemp) {
+
+			Instantiate(VolcanoPrefab,new Vector3(0f,0f,0f),PlayerObject.transform.rotation);
+			temperature[0] -= Mathf.Max (0,VolcanoSpawnTempReduction);
+		}
 	}
 
 	public void AbsorbHeat(int layer, float tempamplitude) {
