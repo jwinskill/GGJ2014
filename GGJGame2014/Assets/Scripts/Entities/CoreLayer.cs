@@ -28,13 +28,16 @@ public class CoreLayer : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (isUserMouseDown) {
-			float templevel = 1f - (parentPlanet.AbsorbHeat(LayerDepth, TempAmplitude) / MaxTemp);
+		float templevel;
 
-			SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
-			renderer.material.SetColor ("_Color", new Color(1f,templevel,templevel,1f));
+		if (isUserMouseDown) {
+			parentPlanet.AbsorbHeat(LayerDepth, TempAmplitude);
 			//transform.localScale += new Vector3(0.01f,0.01f,0.0f);
 		}
+
+		templevel = 1f - parentPlanet.GetLayerTemp(LayerDepth) / MaxTemp;
+		SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
+		renderer.material.SetColor ("_Color", new Color(1f,templevel,templevel,1f));
 	}
 
 	void OnMouseDown() {
