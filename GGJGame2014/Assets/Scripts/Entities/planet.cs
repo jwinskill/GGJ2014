@@ -21,6 +21,10 @@ public class planet : MonoBehaviour {
 	public float VolcanoSpawnTemp = 20f;
 	public float VolcanoSpawnTempReduction = 15f;
 
+	public float SteamSpawnTemp = 20f;
+	public float SteamSpawnTempReduction = 15f;
+	public GameObject SteamParticleObject;
+
 	public float PlanetTemperature 
 	{
 		get {
@@ -59,6 +63,12 @@ public class planet : MonoBehaviour {
 			Instantiate(VolcanoPrefab,new Vector3(0f,0f,0f),PlayerObject.transform.rotation);
 			temperature[0] -= Mathf.Max (0,VolcanoSpawnTempReduction);
 
+		}
+		if (temperature[2] > SteamSpawnTemp) {
+			
+			Instantiate(SteamParticleObject, new Vector3(0f,0f,0f),PlayerObject.transform.rotation);
+			temperature[2] -= Mathf.Max (0,SteamSpawnTempReduction);
+			
 		}
 	}
 
