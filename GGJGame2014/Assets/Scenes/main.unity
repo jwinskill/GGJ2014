@@ -600,6 +600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxTemperature: 100
+  VolcanoPrefab: {fileID: 100000, guid: 57d3f923b9fafaa4682ae015cb6f8570, type: 2}
 --- !u!1 &1074932267
 GameObject:
   m_ObjectHideFlags: 0

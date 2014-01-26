@@ -15,6 +15,12 @@ public class planet : MonoBehaviour {
 
 	public float MaxTemperature = 100f;
 
+	public GameObject PlayerObject;
+	public GameObject VolcanoPrefab;
+
+	public float VolcanoSpawnTemp = 20f;
+	public float VolcanoSpawnTempReduction = 15f;
+
 	public float PlanetTemperature 
 	{
 		get {
@@ -43,9 +49,15 @@ public class planet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 		atmosphere += 0.1f;
 		if (atmosphere > 100f) {
 			atmosphere = 100f;
+		if (temperature[0] > VolcanoSpawnTemp) {
+
+			Instantiate(VolcanoPrefab,new Vector3(0f,0f,0f),PlayerObject.transform.rotation);
+			temperature[0] -= Mathf.Max (0,VolcanoSpawnTempReduction);
+
 		}
 	}
 
