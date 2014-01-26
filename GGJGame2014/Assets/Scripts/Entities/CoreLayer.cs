@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CoreLayer : MonoBehaviour {
 
+	public int LayerDepth = 0;
+	public float TempAmplitude = 1.0f;
 	public string LayerName = "Unknown_Corelayer";
 	private float baselightIntensity = 0.0f;
 	private bool isUserMouseDown = false;
@@ -22,7 +24,8 @@ public class CoreLayer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (isUserMouseDown) {
-			transform.localScale += new Vector3(0.01f,0.01f,0.0f);
+			parentPlanet.AbsorbHeat(LayerDepth, TempAmplitude);
+			//transform.localScale += new Vector3(0.01f,0.01f,0.0f);
 		}
 	}
 
